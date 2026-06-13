@@ -83,30 +83,31 @@ def run_zscore_analysis(feature_matrix, account_ids):
             })
             
     return flagged
-    
-    def run_anomaly_detection(accounts):
-        """
-        entry point; this one takes a list of account stats dicts, builds feature vectors,
-        runs both detection methods and returns combined results deduplicated by account_id
-        """
-        if not accounts:
-            return[]
-        
-        account_ids = [a["id"] for a in accounts]
-        feature_matrix = [build_feature_vector(a) for a in accounts]
-        
-        if_flags = run_isolation_forest(feature_matrix, account_ids)
-        z_flags = run_zscore_analysis(feature_matrix, account_ids)
-        
-        # merge results; if an account was caught by both, keep the higher score
-        combined = {}
-        for flag in if_flags + z_flags:
-            acc_id = flag["account_id"]
-            if acc_id not in combined or flag["score"] > combined[acc_id]["score"]:
-                combined[acc_id] = flag
-                
-        log.info(f"anomaly detection complete - {len(accounts)} accounts analyzed, {len(combined)} flagged")
-        
-        return list(combined.values())
-         
+
+
+def run_anomaly_detection(accounts):
+    """
+    entry point; this one takes a list of account stats dicts, builds feature vectors,
+    runs both detection methods and returns combined results deduplicated by account_id
+    """
+    if not accounts:
+        return []
+
+    account_ids = [a["id"] for a in accounts]
+    feature_matrix = [build_feature_vector(a) for a in accounts]
+
+    if_flags = run_isolation_forest(feature_matrix, account_ids)
+    z_flags = run_zscore_analysis(feature_matrix, account_ids)
+
+    # merge results; if an account was caught by both, keep the higher score
+    combined = {}
+    for flag in if_flags + z_flags:
+        acc_id = flag["account_id"]
+        if acc_id not in combined or flag["score"] > combined[acc_id]["score"]:
+            combined[acc_id] = flag
+
+    log.info(f"anomaly detection complete - {len(accounts)} accounts analyzed, {len(combined)} flagged")
+
+    return list(combined.values())
+
     

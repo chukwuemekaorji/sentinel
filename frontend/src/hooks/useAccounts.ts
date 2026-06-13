@@ -24,7 +24,7 @@ async function fetchAccounts(minRisk = 0, status?: string): Promise<Account[]> {
   const params = new URLSearchParams({ min_risk: String(minRisk) });
   if (status) params.append("status", status);
 
-  const res = await fetch(`/api/accounts?${params}`);
+  const res = await fetch(`/api/accounts/?${params}`);
   if (!res.ok) throw new Error("failed to fetch accounts");
   return res.json();
 }

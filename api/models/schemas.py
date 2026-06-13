@@ -15,10 +15,16 @@ class AccountOut(BaseModel):
     risk_score: float
     status: str
     created_at: datetime
-    
-class Config:
-    from_attributes = True
-    
+
+    class Config:
+        from_attributes = True
+
+
+# request body for updating an account's status
+class StatusUpdate(BaseModel):
+    status: str
+
+
 # the model for the flag information in the API response
 class FlagOut(BaseModel):
     id: int

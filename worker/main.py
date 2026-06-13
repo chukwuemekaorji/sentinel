@@ -135,7 +135,7 @@ def get_recent_events(conn, minutes=1):
     """fetches events from the last N minutes for graph analysis"""
     with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
         cur.execute("""
-            SELECT account_id, event_type, target_id, metadata_
+            SELECT account_id, event_type, target_id, metadata
             FROM events
             WHERE timestamp >= NOW() - INTERVAL '%s minutes'
         """, (minutes,))

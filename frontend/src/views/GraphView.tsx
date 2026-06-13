@@ -25,7 +25,7 @@ interface GraphData {
 }
 
 async function fetchGraph(): Promise<GraphData> {
-  const res = await fetch("/api/graph");
+  const res = await fetch("/api/graph/");
   if (!res.ok) throw new Error("failed to fetch graph");
   return res.json();
 }

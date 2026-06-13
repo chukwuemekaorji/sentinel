@@ -1,6 +1,6 @@
 import random
 import uuid
-import datetime
+from datetime import datetime, timezone
 from faker import Faker
 
 faker = Faker()
@@ -23,7 +23,7 @@ def generate_account(account_id=None):
         "follower_count": random.randint(10, 5000),
         "following_count": random.randint(10, 3000),
         "post_count": random.randint(0, 500),
-        "created_at": datetime.now(datetime.timezone.utc).isoformat(),
+        "created_at": datetime.now(timezone.utc).isoformat(),
     }
     
     
@@ -45,7 +45,7 @@ def generate_normal_event(account_pool):
         "account_id": account["id"],
         "event_type": event_type,
         "target_id": target,
-        "timestamp": datetime.now(datetime.timezone.utc).isoformat(),
+        "timestamp": datetime.now(timezone.utc).isoformat(),
         "metadata": {},
         "is_anomaly": False
     }
@@ -64,7 +64,7 @@ def generate_bot_farm_events(account_pool):
             "account_id": bot["id"],
             "event_type": "follow",
             "target_id": target["id"],
-            "timestamp": datetime.now(datetime.timezone.utc).isoformat(),
+            "timestamp": datetime.now(timezone.utc).isoformat(),
             "metadata": {"anomaly_type": "bot_farm"},
             "is_anomaly": True
         })
@@ -87,7 +87,7 @@ def generate_follower_spike_events(account_pool):
             "account_id": follower["id"],
             "event_type": "follow",
             "target_id": target["id"],
-            "timestamp": datetime.now(datetime.timezone.utc).isoformat(),
+            "timestamp": datetime.now(timezone.utc).isoformat(),
             "metadata": {"anomaly_type": "follower_spike"},
             "is_anomaly": True
         })
@@ -111,7 +111,7 @@ def generate_coordinated_cluster_events(account_pool):
                 "account_id": account["id"],
                 "event_type": random.choice(["follow", "like", "comment"]),
                 "target_id": target["id"],
-                "timestamp": datetime.now(datetime.timezone.utc).isoformat(),
+                "timestamp": datetime.now(timezone.utc).isoformat(),
                 "metadata": {"anomaly_type": "coordinated_cluster"},
                 "is_anomaly": True
             })

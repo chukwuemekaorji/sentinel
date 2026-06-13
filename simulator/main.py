@@ -6,7 +6,7 @@ import logging
 
 import redis
 from dotenv import load_dotenv
-from generators import generate_account, generate_normal_event, generate_anomaly_events
+from generators import generate_account, generate_normal_event, generate_anomalies
 
 load_dotenv()
 
@@ -67,7 +67,7 @@ def main():
         
         # every ANOMALY_FREQUENCY batches, generate some anomalies
         if batch_count % ANOMALY_FREQUENCY == 0:
-            anomaly_events = generate_anomaly_events(account_pool)
+            anomaly_events = generate_anomalies(account_pool)
             for event in anomaly_events:
                 push_event(r, event)
             log.info(f"generated anomaly: {anomaly_events[0]['metadata'].get('anomaly_type')} ({len(anomaly_events)} events)")
