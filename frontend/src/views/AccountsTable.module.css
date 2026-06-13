@@ -1,0 +1,120 @@
+.loading {
+  padding: 24px;
+  color: var(--text-muted);
+}
+
+.page {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filterLabel {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.filterSlider {
+  width: 100px;
+}
+
+.filterValue {
+  font-size: 12px;
+  width: 28px;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.headerRow {
+  border-bottom: 1px solid var(--border);
+}
+
+.headerCell {
+  padding: 10px 12px;
+  text-align: left;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.row {
+  border-bottom: 1px solid var(--border);
+}
+
+.cell {
+  padding: 10px 12px;
+}
+
+.cellMuted {
+  padding: 10px 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.cellBold {
+  padding: 10px 12px;
+  font-weight: 500;
+}
+
+.riskScore {
+  font-weight: 600;
+}
+
+.riskHigh {
+  color: var(--danger);
+}
+
+.riskMedium {
+  color: var(--warning);
+}
+
+.riskLow {
+  color: var(--success);
+}
+
+.statusBadge {
+  background: var(--border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 11px;
+}
+
+.statusSelect {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.empty {
+  padding: 24px 0;
+  color: var(--text-muted);
+}

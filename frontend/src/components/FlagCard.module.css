@@ -1,0 +1,65 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accountId {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.scoreBadge {
+  color: #fff;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.scoreHigh {
+  background: var(--danger);
+}
+
+.scoreMedium {
+  background: var(--warning);
+}
+
+.scoreLow {
+  background: var(--success);
+}
+
+.meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.sourceBadge {
+  background: var(--border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.timestamp {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.reason {
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.4;
+}

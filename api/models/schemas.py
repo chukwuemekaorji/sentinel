@@ -21,12 +21,13 @@ class Config:
     
 # the model for the flag information in the API response
 class FlagOut(BaseModel):
-    id: str
+    id: int
     account_id: str
+    source: str
     reason: str
     score: float
     created_at: datetime
-    
+
     class Config:
         from_attributes = True
         
