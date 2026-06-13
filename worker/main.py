@@ -83,7 +83,7 @@ def write_event(conn, event):
     """writes a raw event to the events table"""
     with conn.cursor() as cur:
         cur.execute("""
-            INSERT INTO events (account_id, event_type, target_id, metadata_)
+            INSERT INTO events (account_id, event_type, target_id, metadata)
             VALUES (%s, %s, %s, %s)
         """, (
             event["account_id"],
