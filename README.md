@@ -1,4 +1,4 @@
-Open README.md and paste:
+
 markdown# Sentinel
 
 A real-time social media anomaly detection platform. A Python simulator generates a continuous stream of fake account activity and seeds deliberate anomalies — bot farms, follower spikes, coordinated clusters. A worker pulls from a Redis queue and runs three detection layers in parallel. Findings land in Postgres. A FastAPI backend serves the data and pushes high-risk alerts to a React dashboard over WebSocket.
